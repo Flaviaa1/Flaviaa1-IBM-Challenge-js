@@ -1,0 +1,50 @@
+
+
+ 
+   type Usuario {
+      usuario: String
+   }
+   type IBM {
+      id:ID
+      concepto: String
+      monto: Float
+      fecha: String
+      tipo: TipoIBM
+
+   }
+   enum TipoIBM {
+         INGRESO
+         EGRESO
+   }
+
+   input IBMInput {
+      id:ID
+      concepto: String
+      monto: Float
+      fecha: String
+      tipo: TipoIBM
+      
+   }
+   type Token  {
+      token: String!
+   }  
+   
+   type Query {
+      getIBMS(limite: Int): [IBM]
+      getIBM(id:ID): IBM
+      obtenerUsuario: Usuario
+   }
+ 
+   type Mutation {
+    ##USUARIOS
+    crearUsuario( usuario: String!, nombre: String!, password: String!) : String
+    autenticarUsuario(usuario: String!, password: String!) : Token
+    ##IBM
+    nuevoIBM (input: IBMInput): IBM
+    actualizarIMB  (input: IBMInput): IBM
+    eliminarIBM(id: ID!): String
+   }
+    
+
+
+
