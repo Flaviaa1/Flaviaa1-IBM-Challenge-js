@@ -6,6 +6,8 @@ import Header from './componentes/Header'
 import Ibm from './componentes/Ibm'
 import NuevoIbm from './componentes/NuevoIbm';
 import  EditarIbm from './componentes/EditarIbm';
+import Registro from './componentes/Auth/Registro';
+import Login from './componentes/Auth/Login'
 const client = new ApolloClient({
 
   uri: "http://localhost:4000/graphql",
@@ -29,7 +31,8 @@ class App extends Component {
           <Route exact path="/" component= {Ibm}/> 
           <Route exact path="/ibm/nuevo" component= {NuevoIbm}/>
           <Route exact path="/ibm/editar/:id" component={EditarIbm}/> 
-
+          <Route exact path="/registro" component= {Registro}/> 
+          <Route exact path="/login" component= {Login}/> 
           </Switch>
           </div>
          </Fragment>

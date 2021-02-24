@@ -30,3 +30,19 @@ mutation eliminarIBM($id: ID!){
     eliminarIBM(id: $id)
   }
 `;
+
+export const NUEVO_USUARIO = gql `
+
+mutation crearUsuario($usuario: String!,$nombre:String!, $password:String!){
+    crearUsuario (usuario: $usuario,nombre:$nombre, password: $password)
+}
+
+`;
+
+export const AUTENTICAR_USUARIO = gql `
+  mutation autenticarUsuario($usuario: String!, $password: String! ) {
+  autenticarUsuario(usuario: $usuario, password: $password){
+    token
+  }
+}
+`;
