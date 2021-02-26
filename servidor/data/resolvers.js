@@ -34,6 +34,7 @@ export const resolvers = {
         }
 
         console.log(usuarioActual);
+        //OBTENER EL USUARIO ACTUAL DEL REQUEST DE JTW verificado
         const usuario = Usuarios.findOne({usuario: usuarioActual.usuario})
          return usuario;
     }
