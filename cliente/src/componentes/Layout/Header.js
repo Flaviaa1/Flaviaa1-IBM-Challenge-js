@@ -36,7 +36,7 @@ const NavegacionAtenticado = () => (
                 <ul className="navbar-nav ml-auto mtx-right"> 
                     <li className="nav-item active">
                     <Link to="/ibm/nuevo" className="btn btn-success">
-                        Nuevo Cliente
+                        Nuevo
                         </Link>
                     </li>
                         
@@ -54,7 +54,7 @@ const NavegacionAtenticado = () => (
 const NavegacioNoAtenticado = () => (
     <Fragment>
          <h3 to="/" className="navbar-brand text-light font-weigt-bold" >Contralar Gastos</h3>
-    <Link to="/registro" className="btn btn-success ml-md-2 mt-2 mt-md-0"> Sing Up</Link>
+    <Link to="/registro" className="btn btn-success ml-md-2 mt-2 mt-md-0"> Registrarse</Link>
     </Fragment>
    
 )
