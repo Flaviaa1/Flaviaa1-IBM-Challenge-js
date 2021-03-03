@@ -36,7 +36,6 @@ useCreateIndex: true});
 const usuariosSchema = new mongoose.Schema({
      usuario:String,
      nombre:String,
-     rol:String,
      password:String
 });
 const IBMSchema = new mongoose.Schema({

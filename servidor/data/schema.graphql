@@ -3,11 +3,12 @@
  
    type Usuario {
       usuario: String
+      nombre:String
    }
    type IBM {
       id:ID
       concepto: String
-      monto: Float
+      monto: Int
       fecha: String
       tipo: TipoIBM
 
@@ -20,7 +21,7 @@
    input IBMInput {
       id:ID
       concepto: String
-      monto: Float
+      monto: Int
       fecha: String
       tipo: TipoIBM
       
@@ -33,6 +34,8 @@
       getIBMS(limite: Int): [IBM]
       getIBM(id:ID): IBM
       obtenerUsuario: Usuario
+      ingresosIBM: [IBM]
+      egresosIBM: [IBM]
    }
  
    type Mutation {

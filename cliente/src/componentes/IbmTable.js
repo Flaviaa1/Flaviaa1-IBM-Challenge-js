@@ -1,11 +1,14 @@
-import React from 'react'
+import React from 'react';
+import moment from 'moment';
 import { Link } from 'react-router-dom'
 import {ELIMINAR_IBM} from "../mutations";
 import {Mutation} from "react-apollo"
 const IbmTable = ({ibm}) => {
    
     const {id, monto, concepto, fecha, tipo} = ibm;
- 
+  
+
+    var timestamp = Number(fecha)
 
     return (
        
@@ -14,7 +17,7 @@ const IbmTable = ({ibm}) => {
            
                 <td>{concepto}</td>
                 <td>{monto}</td>
-                <td>{fecha}</td>
+                <td>{moment(timestamp).format('L')}</td>
                 <td>{tipo}</td>
                 <td>
                 <Link to={`/ibm/editar/${id} `} className="btn btn-success d-bolck d-md-inline-block">

@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { ApolloProvider } from "react-apollo";
 import {BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import ApolloClient, {InMemoryCache} from "apollo-boost";
-import Header from './componentes/Header'
+import Header from './componentes/Layout/Header'
 import Ibm from './componentes/Ibm'
 import NuevoIbm from './componentes/NuevoIbm';
 import EditarIbm from './componentes/EditarIbm';
@@ -13,13 +13,13 @@ import Session from './componentes/Session';
 
 const App = ({refetch, session}) =>{
   const  {obtenerUsuario} = session;
-  const mensaje = (obtenerUsuario) ? `Bienvenido  ${obtenerUsuario.usuario}` : <Redirect to="/login" />;
+  const mensaje = (obtenerUsuario) ? `Bienvenido  ${obtenerUsuario.nombre}` : <Redirect to="/login" />;
    console.log(session);
     return (
   
         <Router>
          <Fragment>
-         <Header/>
+         <Header session={session}/>
         
         <div className='container'>
         <p className= "text-right mt-4">{mensaje}</p>

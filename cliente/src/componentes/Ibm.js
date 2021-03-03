@@ -41,7 +41,7 @@ const Ibm = () => {
                            />
                                 
                             )
-                         )}
+)}
                            
                          </tbody> 
                     </table> 
