@@ -37,7 +37,35 @@ export const resolvers = {
         //OBTENER EL USUARIO ACTUAL DEL REQUEST DE JTW verificado
         const usuario = Usuarios.findOne({usuario: usuarioActual.usuario})
          return usuario;
-    }
+    },
+    ingresosIBM: async () =>{
+        const ibm = await IBM.aggregate([
+            { $match :  {tipo: "INGRESO"}},
+            
+           {
+              $limit : 10
+           },
+            {
+                $sort : { total:-1}
+            }
+
+        ]);
+        return ibm;
+   },
+   egresosIBM: async () =>{
+    const ibm = await IBM.aggregate([
+        { $match :  {tipo: "EGRESO"}},
+        
+       {
+          $limit : 10
+       },
+        {
+            $sort : { total:-1}
+        }
+
+    ]);
+    return ibm;
+},
 },
     Mutation: {
         

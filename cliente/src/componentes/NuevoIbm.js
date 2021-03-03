@@ -1,13 +1,14 @@
 import React, { Component, Fragment } from 'react';
 import {NUEVO_IBM} from '../mutations';
 import {Mutation} from 'react-apollo'
+import DatePicker from 'react-datepicker';
 class NuevoIbm extends Component {
 
     state = {
         ibm: {
             monto:'',
             concepto:'',
-            fecha:'',
+            fecha: '',
             tipo:''
         },
         error:false
@@ -49,7 +50,7 @@ class NuevoIbm extends Component {
                                          }
                                         
                                         const input = {
-                                            monto,
+                                            monto : Number(monto),
                                             concepto,
                                             fecha,
                                             tipo
@@ -67,6 +68,21 @@ class NuevoIbm extends Component {
 
                                     
                                         <div className="form-row">
+
+                                        <div className="form-group col-md-6">
+                                                <label>Monto</label>
+                                                <input 
+                                                type="Number" 
+                                                className="form-control" 
+                                                placeholder="Monto"
+                                                onChange={ e =>{
+                                                    this.setState({
+                                                    ibm:{...this.state.ibm,
+                                                        monto: e.target.value}
+                                                    })
+                                                }}
+                                                ></input>
+                                            </div>
                                             <div className="form-group col-md-6">
                                                 <label>Descripcion</label>
                                                 <input 
@@ -84,20 +100,7 @@ class NuevoIbm extends Component {
                                                 }}
                                                 ></input>
                                             </div>
-                                            <div className="form-group col-md-6">
-                                                <label>Monto</label>
-                                                <input 
-                                                type="Number" 
-                                                className="form-control" 
-                                                placeholder="Monto"
-                                                onChange={ e =>{
-                                                    this.setState({
-                                                    ibm:{...this.state.ibm,
-                                                        monto: e.target.value}
-                                                    })
-                                                }}
-                                                ></input>
-                                            </div>
+                                          
                                         </div>
                                         
                                         <div className="form-row">
@@ -106,7 +109,7 @@ class NuevoIbm extends Component {
                                                 <input 
                                                 type="date" 
                                                 className="form-control" 
-                                                placeholder="Empresa"
+                                                name="fecha"
                                                 onChange={ e =>{
                                                     this.setState({
                                                         ibm: {...this.state.ibm,
@@ -114,6 +117,7 @@ class NuevoIbm extends Component {
                                                     })
                                                 }}
                                                 ></input>
+                                                
                                             </div>
                                             <div className="form-group col-md-6">
                                                 <label>Tipo</label>

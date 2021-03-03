@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import {ACTUALIZAR_IBM } from '../mutations';
 import {Mutation} from 'react-apollo';
-import {withRouter} from 'react-router-dom'
+import {withRouter} from 'react-router-dom';
+import moment from 'moment';
 
 class FormularioEditarIbm extends Component {
     state = {
@@ -31,7 +32,7 @@ class FormularioEditarIbm extends Component {
 
                                             const input = {
                                                 id,
-                                                monto,
+                                                monto : Number(monto),
                                                 concepto,
                                                 fecha,
                                                 tipo
@@ -53,8 +54,9 @@ class FormularioEditarIbm extends Component {
                                                 <label>Descripcion</label>
                                                 <input 
                                                 type="text" 
+                                                value={concepto}
                                                 className="form-control"
-                                                placeholder="Descripcion"
+                                               
                                                 onChange={ e =>{
                                                     this.setState({
                                                         ibm:{
@@ -70,8 +72,9 @@ class FormularioEditarIbm extends Component {
                                                 <label>Monto</label>
                                                 <input 
                                                 type="Number" 
+                                                value={monto}
                                                 className="form-control" 
-                                                placeholder="Monto"
+                                                
                                                 onChange={ e =>{
                                                     this.setState({
                                                     ibm:{...this.state.ibm,
@@ -87,6 +90,7 @@ class FormularioEditarIbm extends Component {
                                                 <label>Fecha</label>
                                                 <input 
                                                 type="date" 
+                                                value={fecha}
                                                 className="form-control" 
                                                 placeholder="Empresa"
                                                 onChange={ e =>{
@@ -101,14 +105,9 @@ class FormularioEditarIbm extends Component {
                                                 <label>Tipo</label>
                                                 <select
                                                     className="form-control"
-                                                    
+                                                    value={tipo}
                                                     name="tipo"
-                                                    onChange={ e =>{
-                                                        this.setState({
-                                                            ibm: {...this.state.ibm,
-                                                            tipo: e.target.value}
-                                                        })
-                                                    }}
+                                                    
                                                 >
                                                <option value=""> Elegir..</option>
                                                <option value="INGRESO">INGRESO</option>
@@ -132,4 +131,4 @@ class FormularioEditarIbm extends Component {
     }
 }
 
-export default FormularioEditarIbm;
+export default withRouter(FormularioEditarIbm);
